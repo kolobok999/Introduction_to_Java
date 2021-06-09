@@ -28,15 +28,11 @@ public class Task3_1 {
 
         System.out.println();
 
-        for (int i = mass1.length - 1 ; i >= k + mass2.length; i--) {   //Перемещаем элементы в конец
-            mass1[i] = mass1[i - mass2.length];
-            mass1[i - mass2.length] = 0;
-        }
-        int i = k;
-        for (int m : mass2) {                        //Вставляем второй массив в первый с к-го элемента
-            mass1[i] = m;
-            i++;
-        }
+//Перемещаем элементы в конец
+        System.arraycopy(mass1, k, mass1, k + mass2.length, mass1.length - (k + mass2.length));
+
+// Вставляем второй массив в первый с к-го элемента
+        System.arraycopy(mass2, 0, mass1, k, mass2.length);
 
         for (int m : mass1) {
             System.out.print(m + " ");
